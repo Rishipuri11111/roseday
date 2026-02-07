@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Rose Day, My Love 🌹</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600;700&family=Playfair+Display:wght@400;700&family=Dancing+Script:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --rose-red: #c41e3a;
+            --rose-pink: #ff69b4;
+            --soft-pink: #ffb6c1;
+            --cream: #fff5f5;
+            --deep-red: #8b0000;
+            --gold: #ffd700;
+        }
+
+        body {
+            font-family: 'Cormorant Garamond', serif;
+            background: linear-gradient(135deg, var(--cream) 0%, #ffe4e9 50%, #ffd4dc 100%);
+            color: var(--deep-red);
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* Floating rose petals animation */
+        .petal {
+            position: fixed;
+            width: 20px;
+            height: 20px;
+            background: radial-gradient(ellipse at center, var(--rose-red) 0%, var(--rose-pink) 100%);
+            border-radius: 50% 50% 50% 0;
+            opacity: 0.7;
+            animation: fall linear infinite;
+            z-index: 1;
+        }
+
+        @keyframes fall {
+            0% {
+                transform: translateY(-100px) rotate(0deg);
+                opacity: 0.7;
+            }
+            100% {
+                transform: translateY(100vh) rotate(720deg);
+                opacity: 0;
+            }
+        }
+
+        /* Header Section */
+        header {
+            text-align: center;
+            padding: 80px 20px 40px;
+            position: relative;
+            z-index: 10;
+        }
+
+        h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 4.5em;
+            color: var(--rose-red);
+            margin-bottom: 20px;
+            animation: fadeInDown 1.5s ease-out;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .subtitle {
+            font-family: 'Dancing Script', cursive;
+            font-size: 2.5em;
+            color: var(--deep-red);
+            animation: fadeInUp 1.5s ease-out 0.5s both;
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Main Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            position: relative;
+            z-index: 10;
+        }
+
+        /* Photo Gallery Section */
+        .photo-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin: 60px 0;
+        }
+
+        .photo-frame {
+            position: relative;
+            overflow: hidden;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(196, 30, 58, 0.3);
+            animation: scaleIn 1s ease-out both;
+            transition: transform 0.5s ease;
+            background: white;
+            padding: 15px;
+        }
+
+        .photo-frame:nth-child(1) { animation-delay: 0.2s; }
+        .photo-frame:nth-child(2) { animation-delay: 0.4s; }
+        .photo-frame:nth-child(3) { animation-delay: 0.6s; }
+
+        .photo-frame:hover {
+            transform: scale(1.05) rotate(2deg);
+        }
+
+        .photo-frame img {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            border-radius: 10px;
+            display: block;
+        }
+
+        @keyframes scaleIn {
+            from {
+                opacity: 0;
+                transform: scale(0.8);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        /* Heart Message Section */
+        .message-section {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.7));
+            backdrop-filter: blur(10px);
+            border-radius: 30px;
+            padding: 60px 40px;
+            margin: 60px auto;
+            box-shadow: 0 20px 60px rgba(196, 30, 58, 0.2);
+            border: 3px solid var(--rose-pink);
+            position: relative;
+            animation: fadeIn 1.5s ease-out 1s both;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .message-section::before,
+        .message-section::after {
+            content: '🌹';
+            position: absolute;
+            font-size: 3em;
+            opacity: 0.3;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        .message-section::before {
+            top: 20px;
+            left: 20px;
+        }
+
+        .message-section::after {
+            bottom: 20px;
+            right: 20px;
+            animation-delay: 1.5s;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+
+        .message-section h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3em;
+            color: var(--rose-red);
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .love-letter {
+            font-size: 1.4em;
+            line-height: 2;
+            color: var(--deep-red);
+            text-align: justify;
+            max-width: 900px;
+            margin: 0 auto;
+            text-indent: 50px;
+        }
+
+        /* Animated Roses Section */
+        .roses-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 40px;
+            margin: 80px 0;
+            flex-wrap: wrap;
+        }
+
+        .rose {
+            width: 100px;
+            height: 150px;
+            position: relative;
+            animation: bloom 2s ease-in-out infinite;
+        }
+
+        .rose:nth-child(2) { animation-delay: 0.5s; }
+        .rose:nth-child(3) { animation-delay: 1s; }
+        .rose:nth-child(4) { animation-delay: 1.5s; }
+        .rose:nth-child(5) { animation-delay: 2s; }
+
+        @keyframes bloom {
+            0%, 100% { transform: scale(1) rotate(0deg); }
+            50% { transform: scale(1.2) rotate(10deg); }
+        }
+
+        .rose-flower {
+            width: 80px;
+            height: 80px;
+            background: radial-gradient(circle at 30% 30%, var(--rose-pink), var(--rose-red));
+            border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+            position: relative;
+            margin: 0 auto;
+            box-shadow: 0 10px 30px rgba(196, 30, 58, 0.4);
+        }
+
+        .rose-stem {
+            width: 4px;
+            height: 70px;
+            background: linear-gradient(to bottom, #2d5016, #4a7c29);
+            margin: 0 auto;
+            border-radius: 2px;
+        }
+
+        .rose-leaf {
+            width: 30px;
+            height: 15px;
+            background: #4a7c29;
+            border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+            position: absolute;
+            top: 50%;
+            left: -15px;
+            transform: rotate(-30deg);
+        }
+
+        /* Heart Beat Animation */
+        .heart {
+            font-size: 100px;
+            color: var(--rose-red);
+            text-align: center;
+            animation: heartbeat 1.5s ease-in-out infinite;
+            margin: 40px 0;
+        }
+
+        @keyframes heartbeat {
+            0%, 100% { transform: scale(1); }
+            10%, 30% { transform: scale(1.2); }
+            20%, 40% { transform: scale(1); }
+        }
+
+        /* Sparkle Effect */
+        .sparkle {
+            position: fixed;
+            width: 10px;
+            height: 10px;
+            background: var(--gold);
+            border-radius: 50%;
+            animation: sparkle 2s linear infinite;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        @keyframes sparkle {
+            0%, 100% { 
+                opacity: 0;
+                transform: scale(0);
+            }
+            50% { 
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 60px 20px;
+            font-family: 'Dancing Script', cursive;
+            font-size: 2em;
+            color: var(--rose-red);
+            animation: fadeIn 2s ease-out 2s both;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5em;
+            }
+            
+            .subtitle {
+                font-size: 1.5em;
+            }
+            
+            .message-section {
+                padding: 40px 20px;
+            }
+            
+            .love-letter {
+                font-size: 1.2em;
+                text-indent: 30px;
+            }
+            
+            .photo-frame img {
+                height: 300px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Floating petals -->
+    <div id="petals-container"></div>
+    
+    <!-- Sparkles -->
+    <div id="sparkles-container"></div>
+
+    <!-- Header -->
+    <header>
+        <h1>Happy Rose Day 🌹</h1>
+        <p class="subtitle">To the Love of My Life</p>
+    </header>
+
+    <!-- Main Container -->
+    <div class="container">
+        <!-- Photo Gallery -->
+        <div class="photo-gallery">
+            <div class="photo-frame">
+                <img src="WhatsApp Image 2026-02-07 at 16.18.02 (1).jpeg" alt="Beautiful moments together">
+            </div>
+            <div class="photo-frame">
+                <img src="WhatsApp Image 2026-02-07 at 16.18.02.jpeg" alt="My beloved">
+            </div>
+            <div class="photo-frame">
+                <img src="WhatsApp Image 2026-02-07 at 16.18.03.jpeg" alt="Most Beautiful">
+            </div>
+            <div class="photo-frame">
+                <img src="WhatsApp Image 2026-02-07 at 16.18.03 (1).jpeg" alt="Beautiful together">
+            
+        </div>
+
+        <!-- Heart Symbol -->
+        <div class="heart">❤️</div>
+
+        <!-- Love Message -->
+        <div class="message-section">
+            <h2>From My Heart to Yours</h2>
+            <p class="love-letter">
+                My dearest love, on this special Rose Day, I want to tell you how incredibly blessed I feel to have you in my life. You are not just my girlfriend; you are my confidante, my best friend, my safe haven, and my greatest source of joy. Every single day, you show me what it means to be loved unconditionally, and I am forever grateful for your presence in my life. You are always there for me, through every triumph and every challenge, standing by my side with unwavering support and endless patience. When I'm lost, you guide me. When I'm weak, you strengthen me. When I'm sad, you bring sunshine into my darkest moments. Everything you do for me, from the smallest gestures to the grandest expressions of love, fills my heart with warmth and reminds me how lucky I am to call you mine. Your smile lights up my world, your laughter is my favorite melody, and your love is the greatest gift I've ever received. Just like these roses, my love for you blooms endlessly, growing more beautiful with each passing day. Thank you for being the incredible person you are, for loving me the way you do, and for making every moment we share an unforgettable memory. I love you more than words could ever express, today and always. Happy Rose Day, my beautiful angel Kritika Thakur <3.
+            </p>
+        </div>
+
+        <!-- Animated Roses -->
+        <div class="roses-container">
+            <div class="rose">
+                <div class="rose-flower"></div>
+                <div class="rose-stem">
+                    <div class="rose-leaf"></div>
+                </div>
+            </div>
+            <div class="rose">
+                <div class="rose-flower"></div>
+                <div class="rose-stem">
+                    <div class="rose-leaf"></div>
+                </div>
+            </div>
+            <div class="rose">
+                <div class="rose-flower"></div>
+                <div class="rose-stem">
+                    <div class="rose-leaf"></div>
+                </div>
+            </div>
+            <div class="rose">
+                <div class="rose-flower"></div>
+                <div class="rose-stem">
+                    <div class="rose-leaf"></div>
+                </div>
+            </div>
+            <div class="rose">
+                <div class="rose-flower"></div>
+                <div class="rose-stem">
+                    <div class="rose-leaf"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Heart Symbol -->
+        <div class="heart">💕</div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        Forever Yours 🌹 With All My Love 💖
+    </footer>
+
+    <script>
+        // Create falling rose petals
+        function createPetal() {
+            const petalsContainer = document.getElementById('petals-container');
+            const petal = document.createElement('div');
+            petal.classList.add('petal');
+            
+            // Random position
+            petal.style.left = Math.random() * 100 + 'vw';
+            
+            // Random animation duration
+            const duration = Math.random() * 5 + 8;
+            petal.style.animationDuration = duration + 's';
+            
+            // Random delay
+            petal.style.animationDelay = Math.random() * 5 + 's';
+            
+            petalsContainer.appendChild(petal);
+            
+            // Remove petal after animation
+            setTimeout(() => {
+                petal.remove();
+            }, (duration + 5) * 1000);
+        }
+
+        // Create initial petals
+        for (let i = 0; i < 30; i++) {
+            createPetal();
+        }
+
+        // Continuously create new petals
+        setInterval(createPetal, 800);
+
+        // Create sparkles
+        function createSparkle() {
+            const sparklesContainer = document.getElementById('sparkles-container');
+            const sparkle = document.createElement('div');
+            sparkle.classList.add('sparkle');
+            
+            sparkle.style.left = Math.random() * 100 + 'vw';
+            sparkle.style.top = Math.random() * 100 + 'vh';
+            
+            sparklesContainer.appendChild(sparkle);
+            
+            setTimeout(() => {
+                sparkle.remove();
+            }, 2000);
+        }
+
+        // Create sparkles periodically
+        setInterval(createSparkle, 500);
+
+        // Add smooth scroll animation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Add hover effect to photos
+        const photos = document.querySelectorAll('.photo-frame');
+        photos.forEach(photo => {
+            photo.addEventListener('mouseenter', function() {
+                this.style.boxShadow = '0 30px 80px rgba(196, 30, 58, 0.5)';
+            });
+            
+            photo.addEventListener('mouseleave', function() {
+                this.style.boxShadow = '0 20px 60px rgba(196, 30, 58, 0.3)';
+            });
+        });
+    </script>
+</body>
+</html>
